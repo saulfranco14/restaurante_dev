@@ -1,6 +1,7 @@
 const initial_state = {
-    waiters: [],
-    error: null,
+    waiters         : [],
+    loading_waiter  : false,
+    error_waiter    : null,
 }
 
 export default function( state = initial_state, action ){
