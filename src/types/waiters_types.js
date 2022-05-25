@@ -1,0 +1,3 @@
+export const WAITERS_LOADING                  = 'WAITERS_LOADING';
+export const WAITERS_LOADING_SUCCESS          = 'WAITERS_LOADING_SUCCESS';
+export const WAITERS_LOADING_ERROR            = 'WAITERS_LOADING_ERROR';
