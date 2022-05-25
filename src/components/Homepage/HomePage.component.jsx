@@ -1,18 +1,44 @@
-import React                from 'react';
+import React,{useState}     from 'react';
 import {
     WrapperHomePage
 }                           from './HomePage.styles';
+import { useNavigate }      from 'react-router-dom';
 import ImagePlus            from '../../Images/plus_report.png';
 import ImageViewReport      from '../../Images/report_section_1.png';
 import ImageViewProduct     from '../../Images/products_section_1.png';
 import ImageViewWaiters     from '../../Images/waiters_section_1.png';
 import ImageViewCashier     from '../../Images/cashier_section_1.png';
 import ImageViewZone        from '../../Images/zone_section_1.png';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import {styleModal} from '../../utils/modal';
 
 const HomePage = () => {
+
+    const navigate          = useNavigate();
+    const [open, setOpen]   = useState(false);
+    const handleClose       = () => setOpen(false);
+    const [dataSection, setDataSection] = useState({
+        section: ''
+    })
+
+    function sectionNavigate(redirect) {
+        navigate(`/${redirect}`)
+    }
+
+    const handleOpen        = (data) => {
+        setOpen(true);
+        setDataSection({section: data})
+    }
+
     return ( 
         <WrapperHomePage>
-            <div className='button_section background_black'>
+            
+            <div 
+                className='button_section background_black'
+                onClick={() => sectionNavigate('create_report')}
+            >
                 <img
                     className='image_button'
                     src={ImagePlus}
@@ -23,7 +49,10 @@ const HomePage = () => {
                 </h3>
             </div>
 
-            <div className='button_section background_blue'>
+            <div 
+                className='button_section background_blue'
+                onClick={() => sectionNavigate('my_reports')}
+            >
                 <img
                     className='image_button'
                     src={ImageViewReport}
@@ -34,7 +63,10 @@ const HomePage = () => {
                 </h3>
             </div>
 
-            <div className='button_section background_orange'>
+            <div 
+                className='button_section background_orange'
+                onClick={() => handleOpen('Productos')}
+            >
                 <img
                     className='image_button'
                     src={ImageViewProduct}
@@ -45,7 +77,10 @@ const HomePage = () => {
                 </h3>
             </div>
 
-            <div className='button_section background_orange'>
+            <div 
+                className='button_section background_orange'
+                onClick={() => handleOpen('Meseros')}
+            >
                 <img
                     className='image_button'
                     src={ImageViewWaiters}
@@ -56,7 +91,10 @@ const HomePage = () => {
                 </h3>
             </div>
 
-            <div className='button_section background_orange'>
+            <div 
+                className='button_section background_orange'
+                onClick={() => handleOpen('Cajeros')}
+            >
                 <img
                     className='image_button'
                     src={ImageViewCashier}
@@ -67,7 +105,10 @@ const HomePage = () => {
                 </h3>
             </div>
 
-            <div className='button_section background_orange'>
+            <div 
+                className='button_section background_orange'
+                onClick={() => handleOpen('Zonas')}
+            >
                 <img
                     className='image_button'
                     src={ImageViewZone}
@@ -77,6 +118,20 @@ const HomePage = () => {
                     Ver zonas
                 </h3>
             </div>
+
+            {/* MODAL */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+            <Box sx={styleModal}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Modal para ver: {dataSection.section}
+              </Typography>
+            </Box>
+          </Modal>
 
         </WrapperHomePage>
      );
