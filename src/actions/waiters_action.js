@@ -2,8 +2,8 @@ import clientAxios                  from '../config/axios';
 import { SweetAlertBasic }          from '../utils/sweetAlert';
 import{
     WAITERS_LOADING,
-    WAITERS_LOADING_SUCCESS,
-    WAITERS_LOADING_ERROR
+    // WAITERS_LOADING_SUCCESS,
+    // WAITERS_LOADING_ERROR
 } from '../types/waiters_types';
 
 
@@ -29,12 +29,12 @@ const downloadWaiter = () => ({
     payload : true
 })
 
-const downloadWaiterSuccess = ( waiters ) => ({
-    type    : WAITERS_LOADING_SUCCESS,
-    payload : waiters
-})
+// const downloadWaiterSuccess = ( waiters ) => ({
+//     type    : WAITERS_LOADING_SUCCESS,
+//     payload : waiters
+// })
 
-const downloadWaiterError = (error) => ({
-    type    : WAITERS_LOADING_ERROR,
-    error   : error
-})
+// const downloadWaiterError = (error) => ({
+//     type    : WAITERS_LOADING_ERROR,
+//     error   : error
+// })
