@@ -126,12 +126,12 @@ const HomePage = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-            <Box sx={styleModal}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Modal para ver: {dataSection.section}
-              </Typography>
-            </Box>
-          </Modal>
+                <Box sx={styleModal}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Modal para ver: {dataSection.section}
+                </Typography>
+                </Box>
+            </Modal>
 
         </WrapperHomePage>
      );

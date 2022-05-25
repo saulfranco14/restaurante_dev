@@ -25,7 +25,7 @@ export const WrapperHomePage = styled.div`
         }
 
         .text_button{
-            font-family : 'system-ui';
+            font-family : system-ui;
             font-style  : normal;
             font-weight : 700;
             font-size   : 24px;
