@@ -1,4 +1,7 @@
-import React,{useState}     from 'react';
+import React,{
+    useState, 
+    useEffect
+}                           from 'react';
 import {
     WrapperHomePage
 }                           from './HomePage.styles';
@@ -9,13 +12,16 @@ import ImageViewProduct     from '../../Images/products_section_1.png';
 import ImageViewWaiters     from '../../Images/waiters_section_1.png';
 import ImageViewCashier     from '../../Images/cashier_section_1.png';
 import ImageViewZone        from '../../Images/zone_section_1.png';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import {styleModal} from '../../utils/modal';
+import Box                  from '@mui/material/Box';
+import Typography           from '@mui/material/Typography';
+import Modal                from '@mui/material/Modal';
+import {styleModal}         from '../../utils/modal';
+import{  getAllWaiter}      from '../../actions/waiters_action';
+import { useDispatch }       from 'react-redux';
 
 const HomePage = () => {
 
+    const dispatch          = useDispatch();
     const navigate          = useNavigate();
     const [open, setOpen]   = useState(false);
     const handleClose       = () => setOpen(false);
@@ -23,7 +29,7 @@ const HomePage = () => {
         section: ''
     })
 
-    function sectionNavigate(redirect) {
+    const  sectionNavigate = (redirect) => {
         navigate(`/${redirect}`)
     }
 
@@ -31,6 +37,14 @@ const HomePage = () => {
         setOpen(true);
         setDataSection({section: data})
     }
+
+    // USE EFFECT LOADER
+    useEffect( () => {
+        const loadingWaiter = () => dispatch( getAllWaiter() );
+        loadingWaiter();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [] );
 
     return ( 
         <WrapperHomePage>
