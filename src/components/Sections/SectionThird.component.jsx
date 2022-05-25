@@ -4,13 +4,13 @@ import ImageSectionThree        from '../../Images/section_3.png';
 import ImageDateNow             from '../../Images/now_button.png';
 import ImageDate                from '../../Images/date_button.png';
 import ImageSale                from '../../Images/sale_tota_button.png';
-import {
-    WrapperSection
-}                               from '../Report/Report.styles';
 import FormControl              from '@mui/material/FormControl';
 import InputLabel               from '@mui/material/InputLabel';
 import MenuItem                 from '@mui/material/MenuItem';
 import Select                   from '@mui/material/Select';
+import {
+    WrapperSection
+}                               from '../Report/Report.styles';
 
 
 const SectionThird = () => {

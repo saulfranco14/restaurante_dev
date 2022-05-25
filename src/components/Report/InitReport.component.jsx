@@ -3,7 +3,7 @@ import { useNavigate }          from 'react-router-dom';
 import ImageSectionOne          from '../../Images/inicio.png';
 import {
     WrapperSection
-} from './Report.styles'
+}                               from './Report.styles';
 
 const InitReport = () => {
     const navigate          = useNavigate();

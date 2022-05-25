@@ -1,16 +1,22 @@
 import styled from 'styled-components';
 
 export const WrapperSection = styled.div`
+
     display         : flex;
     flex-direction  : column; 
     margin          : 0 auto;
     align-items     : center;
-    justify-content : space-evenly;
+    justify-content : ${props => props.justifyContent ? props.justifyContent : 'space-evenly'} ;
     height          : 100vh;
 
     .image_section{
         margin-top: 0px;
     }
+
+    .image_section_report{
+        margin-top: 10px;
+    }
+
     .text_section{
         font-family     : inherit;
         font-style      : normal;
@@ -22,12 +28,45 @@ export const WrapperSection = styled.div`
         margin          : 0 auto ;
     }
 
+    .text_section_report{
+        justify-content : center;
+        align-items     : center;
+        display         : flex;
+        width           : 100% ;
+        margin-top      : 24px
+    }
+
+    .text_report{
+        font-family     : inherit;
+        font-style      : normal;
+        font-weight     : 800;
+        font-size       : 16px;
+        line-height     : 19px;
+        margin          : 0 ;
+        margin-bottom   : 21px;
+    }
+
+    .text_section_div{
+        font-family         : inherit;
+        font-style          : normal;
+        font-weight         : 700;
+        font-size           : 16px;
+        line-height         : 19px;
+        color               : #FFFFFF;
+    }
+
     .button_section{
         width           : 250px;
         height          : 50px;
         background      : #000000;
         border-radius   : 10px;
         color           : #FFFF;
+    }
+
+    .image_section_div{
+        width       : 32px;
+        height      : 25px;
+        margin-left : 7px;
     }
 
     .category_section{
@@ -48,19 +87,70 @@ export const WrapperSection = styled.div`
         align-items         : center;
         justify-content     : space-around;
     }
-    .text_section_div{
-        font-family         : inherit;
-        font-style          : normal;
-        font-weight         : 700;
-        font-size           : 16px;
-        line-height         : 19px;
-        color               : #FFFFFF;
+
+    .section_report{
+        width               : 76%;
+        height              : 180px;
+        background          : rgba(217, 217, 217, 0.42);
+        border-radius       : 5px;
+        color               : black;
+        display             : flex ;
+        justify-content     : start;
+        align-items         : start;
+        padding-left        : 12px;
+        padding-right       : 12px;
+        padding-top         : 20px;
+        flex-direction      : column;
+        h6{
+            font-style  : normal;
+            font-weight : 400;
+            font-size   : 14px;
+            line-height : 17px;
+            margin      : 8px ;
+        }
+        span{
+            margin-left : 10px;
+            font-weight : 700;
+            font-size   : 14px;
+            line-height : 17px;
+        }
     }
-    .image_section_div{
-        width       : 32px;
-        height      : 25px;
-        margin-left : 7px;
+
+    .section_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80% ;
+        flex-direction: column;
+        margin-top: 20px;
+        
+        .button_report{
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 0;
+            border: none;
+            margin-bottom: 20px;
+        }   
+        .save_report{
+            background: #009117;
+        }
+        .download_pdf{
+            background: #BA0000;
+        }
+        .retry_report{
+            background: #046EBB;
+        }
     }
+   
+
     .section_datetime{
         display: grid;
         grid-template-columns   : repeat(2, 1fr);
@@ -123,4 +213,5 @@ export const WrapperSection = styled.div`
             }
         }
     }
+    
 `
