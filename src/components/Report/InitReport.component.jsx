@@ -6,9 +6,9 @@ import {
 }                               from './Report.styles';
 
 const InitReport = () => {
+    
     const navigate          = useNavigate();
-
-    function sectionNavigate(redirect) {
+    const  sectionNavigate = (redirect) => {
         navigate(`/${redirect}`)
     }
     

@@ -33,7 +33,7 @@ export const WrapperSection = styled.div`
         align-items     : center;
         display         : flex;
         width           : 100% ;
-        margin-top      : 24px
+        margin-top      : 24px;
     }
 
     .text_report{
@@ -117,27 +117,27 @@ export const WrapperSection = styled.div`
     }
 
     .section_button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80% ;
-        flex-direction: column;
-        margin-top: 20px;
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        width           : 80% ;
+        flex-direction  : column;
+        margin-top      : 20px;
         
         .button_report{
-            width: 100%;
-            height: 50px;
-            border-radius: 10px;
-            font-family: inherit;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 24px;
-            text-align: center;
-            color: #FFFFFF;
-            padding: 0;
-            border: none;
-            margin-bottom: 20px;
+            width           : 100%;
+            height          : 50px;
+            border-radius   : 10px;
+            font-family     : inherit;
+            font-style      : normal;
+            font-weight     : 700;
+            font-size       : 20px;
+            line-height     : 24px;
+            text-align      : center;
+            color           : #FFFFFF;
+            padding         : 0;
+            border          : none;
+            margin-bottom   : 20px;
         }   
         .save_report{
             background: #009117;
@@ -149,7 +149,98 @@ export const WrapperSection = styled.div`
             background: #046EBB;
         }
     }
-   
+
+    .text_view_report{
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    
+    .section_view_report{
+        display                 : grid;
+        grid-template-columns   : 1fr .5fr;
+        grid-template-rows      : repeat(6, 1fr);
+        grid-column-gap         : 20px;
+        grid-row-gap            : 0px;
+        width                   : 76%;
+        height                  : 220px;
+        background              : rgba(217, 217, 217, 0.42);
+        border-radius           : 5px;
+        color                   : black;
+        margin-bottom           : 40px;
+
+        .margin10{
+            margin-top: 10px;
+        }
+
+        .text_section_report_view{
+            justify-content : center;
+            align-items     : center;
+            display         : flex;
+            width           : 100% ;
+            h6{
+                font-style  : normal;
+                font-weight : 400;
+                font-size   : 14px;
+                line-height : 17px;
+                margin      : 8px ;
+            }
+            span{
+                margin-left : 10px;
+                font-weight : 700;
+                font-size   : 14px;
+                line-height : 17px;
+            }
+        }
+
+        .section_image_view_report{
+            grid-area       : 1 / 2 / 6 / 3;
+        }
+
+        .button_view_report{
+            grid-area       : 6 / 1 / 7 / 3;
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        
+        .image_view_report{
+            width       : 64px;
+            height      : 64px;
+            padding-top : 19px;
+            padding-left: 17px;
+        }
+        .button_view_report_pdf{
+            height          : 30px;
+            width           : 80% ;
+            background      : #BA0000;
+            border-radius   : 5px;
+            font-family     : inherit;
+            font-style      : normal;
+            font-weight     : 700;
+            font-size       : 14px;
+            line-height     : 24px;
+            color           : #FFFFFF;
+            justify-content : center;
+            align-items     : center;
+            display         : flex;
+            padding         : 0;
+            border          : none;
+            margin-bottom   : 20px;
+        }
+    }
+
+    .section_datetime_input{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
 
     .section_datetime{
         display: grid;
