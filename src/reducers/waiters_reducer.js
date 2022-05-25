@@ -4,14 +4,14 @@ import{
     WAITERS_LOADING_ERROR
 } from '../types/waiters_types';
 
-const initial_state = {
+const initialState = {
     waiters             : [],
     error               : null,
     loading             : false,
     flag                : false,
 }   
 
-export default function( state = initial_state, action ){
+export default function waiter( state = initialState, action ){
     switch(action.type){
 
         case WAITERS_LOADING:

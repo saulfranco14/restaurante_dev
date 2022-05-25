@@ -19,6 +19,7 @@ const MyReports = () => {
                     <img
                         className='image_view_report'
                         src={ImageReport}
+                        alt="imagen de reporte"
                     />
                 </div>
                 <div 
