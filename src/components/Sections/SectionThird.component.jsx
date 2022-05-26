@@ -82,7 +82,7 @@ const SectionThird = () => {
                 <FormControl sx={{ width:'100%'}}>
                     <InputLabel id="demo-simple-select-label">
                         {
-                            [2,4,5,6].includes(category) ? 'No puedes seleccionar': 'Selecciona'
+                            [2,4,5,6,8].includes(category) ? 'No puedes seleccionar': 'Selecciona'
                         }
                     </InputLabel>
                     <Select
@@ -92,13 +92,13 @@ const SectionThird = () => {
                         name="select_category"
                         onChange={onChangeForm}
                         defaultValue = ""
-                        disabled = { [2,4,5,6].includes(category) ? true : false }
+                        disabled = { [2,4,5,6,8].includes(category) ? true : false }
                         style={{
-                            filter: [2,4,5,6].includes(category) ? 'opacity(0.5)' : null
+                            filter: [2,4,5,6,8].includes(category) ? 'opacity(0.5)' : null
                         }}
                     >   
                         {
-                            data_map[0].information == 'all_waiter' ? 
+                            data_map[0].information === 'all_waiter' ? 
                             all_waiter.map(( data) => (
                                 <MenuItem 
                                     key={data}

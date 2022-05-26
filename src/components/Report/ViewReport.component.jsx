@@ -1,10 +1,18 @@
 import React from 'react';
 import ImageViewFinal           from '../../Images/section_final.png';
+import { useNavigate }          from 'react-router-dom';
 import {
     WrapperSection
 }                               from '../Report/Report.styles';
 
 const ViewReport = () => {
+
+    const navigate          = useNavigate();
+    const  sectionNavigate  = (redirect) => {
+        navigate(`/${redirect}`)
+    }
+
+
     return ( 
         <WrapperSection
             justifyContent = 'start'
@@ -78,13 +86,15 @@ const ViewReport = () => {
                 </button>
                 <button 
                     className='button_report download_pdf'
+                    disabled = {true}
                 >
                     Descargar pdf
                 </button>
                 <button 
                     className='button_report retry_report'
+                    onClick={() => sectionNavigate('create_report')}
                 >
-                    Guardar reporte
+                    Realizar otro reporte
                 </button>
             </div>
 

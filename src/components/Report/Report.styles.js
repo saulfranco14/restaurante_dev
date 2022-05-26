@@ -144,6 +144,7 @@ export const WrapperSection = styled.div`
         }
         .download_pdf{
             background: #BA0000;
+            filter: opacity(0.5);
         }
         .retry_report{
             background: #046EBB;
