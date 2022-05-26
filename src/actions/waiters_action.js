@@ -1,4 +1,3 @@
-import clientAxios                  from '../config/axios';
 import { SweetAlertBasic }          from '../utils/sweetAlert';
 import{
     WAITERS_LOADING,

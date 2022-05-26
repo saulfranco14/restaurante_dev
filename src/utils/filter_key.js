@@ -32,8 +32,8 @@ export const data_zone = () => data.filter(element => {
 });
 
 export const unique_product = [];
-export const data_product = () => data.filter(element => {
-    element.products.filter( e => {
+export const data_product = data.filter((element) => {
+    element?.products?.filter( e => {
       const isDuplicate = unique_product.includes(e.name);
       if (!isDuplicate) {
           unique_product.push(e.name);
@@ -41,5 +41,6 @@ export const data_product = () => data.filter(element => {
       }
       return false;
     })
+    return true;
 });
 
