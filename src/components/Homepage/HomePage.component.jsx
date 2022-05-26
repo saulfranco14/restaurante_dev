@@ -1,23 +1,29 @@
 import React,{
     useState, 
     useEffect
-}                           from 'react';
+}                               from 'react';
 import {
     WrapperHomePage
-}                           from './HomePage.styles';
-import { useNavigate }      from 'react-router-dom';
-import ImagePlus            from '../../Images/plus_report.png';
-import ImageViewReport      from '../../Images/report_section_1.png';
-import ImageViewProduct     from '../../Images/products_section_1.png';
-import ImageViewWaiters     from '../../Images/waiters_section_1.png';
-import ImageViewCashier     from '../../Images/cashier_section_1.png';
-import ImageViewZone        from '../../Images/zone_section_1.png';
-import Box                  from '@mui/material/Box';
-import Typography           from '@mui/material/Typography';
-import Modal                from '@mui/material/Modal';
-import {styleModal}         from '../../utils/modal';
-import{  getAllWaiter}      from '../../actions/waiters_action';
-import { useDispatch }       from 'react-redux';
+}                               from './HomePage.styles';
+import { useNavigate }          from 'react-router-dom';
+import ImagePlus                from '../../Images/plus_report.png';
+import ImageViewReport          from '../../Images/report_section_1.png';
+import ImageViewProduct         from '../../Images/products_section_1.png';
+import ImageViewWaiters         from '../../Images/waiters_section_1.png';
+import ImageViewCashier         from '../../Images/cashier_section_1.png';
+import ImageViewZone            from '../../Images/zone_section_1.png';
+import Box                      from '@mui/material/Box';
+import Typography               from '@mui/material/Typography';
+import Modal                    from '@mui/material/Modal';
+import  {styleModal}            from '../../utils/modal';
+import  {getAllWaiter}          from '../../actions/waiters_action';
+import  {getAllCashier}         from '../../actions/cashier_action';
+import  {getAllProduct}         from '../../actions/product_action';
+import  {getAllZone}            from '../../actions/zone_action';
+import { 
+    useDispatch,
+    useSelector 
+}                           from 'react-redux';
 
 const HomePage = () => {
 
@@ -25,24 +31,35 @@ const HomePage = () => {
     const navigate          = useNavigate();
     const [open, setOpen]   = useState(false);
     const handleClose       = () => setOpen(false);
+    const loadingWaiter     = () => dispatch( getAllWaiter() );
+    const loadingCashier    = () => dispatch( getAllCashier() );
+    const loadingProduct    = () => dispatch( getAllProduct() );
+    const loadingZone       = () => dispatch( getAllZone() );
+
     const [dataSection, setDataSection] = useState({
-        section: ''
+        section: '',
+        information: [],
     })
+    const all_waiter        = useSelector ( state => state.waiters?.waiters || {});
+    const all_cashier       = useSelector ( state => state.cashier?.cashier || {});
+    const all_product       = useSelector ( state => state.product?.product || {});
+    const all_zone          = useSelector ( state => state.zone?.zone || {});
 
     const  sectionNavigate = (redirect) => {
         navigate(`/${redirect}`)
     }
 
-    const handleOpen        = (data) => {
+    const handleOpen        = (data, action) => {
         setOpen(true);
-        setDataSection({section: data})
+        setDataSection({section: data, information: action})
     }
 
     // USE EFFECT LOADER
     useEffect( () => {
-        const loadingWaiter = () => dispatch( getAllWaiter() );
         loadingWaiter();
-
+        loadingCashier();
+        loadingProduct();
+        loadingZone();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [] );
 
@@ -79,7 +96,7 @@ const HomePage = () => {
 
             <div 
                 className='button_section background_orange'
-                onClick={() => handleOpen('Productos')}
+                onClick={() => handleOpen('Productos', all_product)}
             >
                 <img
                     className='image_button'
@@ -93,7 +110,7 @@ const HomePage = () => {
 
             <div 
                 className='button_section background_orange'
-                onClick={() => handleOpen('Meseros')}
+                onClick={() => handleOpen('Meseros', all_waiter)}
             >
                 <img
                     className='image_button'
@@ -107,7 +124,7 @@ const HomePage = () => {
 
             <div 
                 className='button_section background_orange'
-                onClick={() => handleOpen('Cajeros')}
+                onClick={() => handleOpen('Cajeros', all_cashier)}
             >
                 <img
                     className='image_button'
@@ -121,7 +138,7 @@ const HomePage = () => {
 
             <div 
                 className='button_section background_orange'
-                onClick={() => handleOpen('Zonas')}
+                onClick={() => handleOpen('Zonas', all_zone)}
             >
                 <img
                     className='image_button'
@@ -141,9 +158,18 @@ const HomePage = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleModal}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Modal para ver: {dataSection.section}
+                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{textAlign: 'center'}}>
+                     {dataSection.section}
                 </Typography>
+                    {
+                        dataSection.information.map((data) => (
+                            <h4 
+                                key={data}
+                            >
+                                {data}
+                            </h4>
+                        ))
+                    }
                 </Box>
             </Modal>
 

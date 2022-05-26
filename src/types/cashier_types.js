@@ -1,0 +1,3 @@
+export const CASHIER_LOADING                  = 'CASHIER_LOADING';
+export const CASHIER_LOADING_SUCCESS          = 'CASHIER_LOADING_SUCCESS';
+export const CASHIER_LOADING_ERROR            = 'CASHIER_LOADING_ERROR';
