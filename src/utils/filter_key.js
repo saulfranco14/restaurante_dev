@@ -32,7 +32,7 @@ export const data_zone = () => data.filter(element => {
 });
 
 export const unique_product = [];
-export const data_product = data.filter((element) => {
+export const data_product = () => data.filter(element => {
     element?.products?.filter( e => {
       const isDuplicate = unique_product.includes(e.name);
       if (!isDuplicate) {
