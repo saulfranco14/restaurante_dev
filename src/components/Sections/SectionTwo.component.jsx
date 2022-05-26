@@ -6,22 +6,30 @@ import {
 }                               from '../Report/Report.styles'
 import {
     categorySection
-}                               from '../../utils/category'
+}                               from '../../utils/category';
+import { useDispatch }          from 'react-redux';
+import { addDataReport }        from '../../actions/report_action';
 
 
 const SectionTwo = () => {
 
     const navigate          = useNavigate();
+    const dispatch          = useDispatch();
+    const dataReport     = (information) => dispatch( addDataReport(information) );
+
+    const [ disabledButton, setDisabledButton] = useState(true)
     const [enabledCategory, setEnabledCategory ] = useState({
         value: '',
         enabled: false
     })
 
     const  sectionNavigate = (redirect) => {
+        dataReport(enabledCategory.value)
         navigate(`/${redirect}`)
     }
 
     const clickCategory = (value) => {
+        setDisabledButton(false);
         setEnabledCategory({
             value: value,
             enabled: true
@@ -68,7 +76,11 @@ const SectionTwo = () => {
             <button
                 className='button_section'
                 onClick={() => sectionNavigate('third_section')}
-            >
+                style={{
+                    filter: disabledButton ? 'opacity(0.5)' : null,
+                }}
+                disabled = { disabledButton }
+            > 
                 Siguiente
             </button>
        </WrapperSection>
